@@ -114,12 +114,13 @@ class ClockIn(object):
         new_info['jcqzrq'] = ""
         new_info['gwszdd'] = ""
         new_info['szgjcs'] = ""
+        new_info['ismoved'] = 5
         
-        res_code = self.sess.get(self.captcha_url, headers=self.HEADERS)
-        ocr = ddddocr.DdddOcr()
-        captcha = ocr.classification(res_code.content)
-        print("captcha {}".format(captcha))
-        new_info['verifyCode'] = captcha
+#         res_code = self.sess.get(self.captcha_url, headers=self.HEADERS)
+#         ocr = ddddocr.DdddOcr()
+#         captcha = ocr.classification(res_code.content)
+#         print("captcha {}".format(captcha))
+#         new_info['verifyCode'] = captcha
 
         # 2021.08.05 Fix 2
         magics = re.findall(r'"([0-9a-f]{32})":\s*"([^\"]+)"', html)
